@@ -1,6 +1,6 @@
 # require '/home/opeyemi/Desktop/Microverse-Projects/Ruby-capstone-project/lib/after_colon.rb'
 require_relative '../lib/after_colon.rb'
-require 'colorize'
+# require 'colorize'
 # require_relative 'spec_helper.rb'
 
 include AfterColon
@@ -21,7 +21,7 @@ describe AfterColon do
 
     it 'It pushes an error message into the error array when the colons do not have the right afterspace' do
         AfterColon.after_colon_check(file_details[136], 136, error_array)
-        expect(error_array).to eq(["No space after colon on line 137".colorize(:cyan)])
+        expect(error_array).to eq(["\e[0;36;49mNo space after colon on line 137\e[0m"])
       end
 
       it 'It returns an empty array if the line passed conly contains a psuedocode' do
