@@ -2,7 +2,7 @@ require_relative '../lib/multiple_space.rb'
 
 
 include MultipleSpace
-include Colorize
+# include Colorize
 
 describe MultipleSpace do
     let(:file) { './style.css' }

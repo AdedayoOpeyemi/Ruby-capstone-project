@@ -4,7 +4,7 @@ require 'colorize'
 # require_relative 'spec_helper.rb'
 
 include AfterColon
-include Colorize
+# include Colorize
 
 
 describe AfterColon do
