@@ -1,13 +1,11 @@
 # require '/home/opeyemi/Desktop/Microverse-Projects/Ruby-capstone-project/lib/after_colon.rb'
 require_relative '../lib/after_colon.rb'
+require 'colorize'
 # require_relative 'spec_helper.rb'
 
+include AfterColon
+include Colorize
 
-describe "sum method" do
-    it "returns the sum of 2 numbers" do
-        expect( 2+3).to eql(5)
-    end
-end
 
 describe AfterColon do
     let(:file) { './style.css' }
@@ -16,19 +14,25 @@ describe AfterColon do
   
   describe '#after_colon_check' do
   
-    it 'returns an empty array when all the colons have the right afterspace' do
-     AfterColon.after_colon_check(file_details[34], 34, error_array)
-
-    #   after_colon_check(file_details[34], 34, error_messages)
-    #   expect(error_messages).to be_a(Array)
-        # file_details.each_with_index { |line, index| after_colon_check(line_content, line_index, error_messages) }end.to be_a_kind_of(Array)
-        expect(error_messages).to eql([])
+    it 'returns an empty array when all the colons on line has the right afterspace' do
+      AfterColon.after_colon_check(file_details[34], 34, error_array)
+      expect(error_array).to eql([])
     end
+
+    it 'It pushes an error message into the error array when the colons do not have the right afterspace' do
+        AfterColon.after_colon_check(file_details[136], 136, error_array)
+        expect(error_array).to eq(["No space after colon on line 137".colorize(:cyan)])
+      end
+
+      it 'It returns an empty array if the line passed conly contains a psuedocode' do
+        AfterColon.after_colon_check(file_details[113], 113, error_array)
+        expect(error_array).to eq([])
+      end
+
+      it 'It returns an empty array if the line passed conly contains a psuedocode' do
+        AfterColon.after_colon_check(file_details[113], 113, error_array)
+        expect(error_array).to eq([])
+      end
 end
 end
 
-describe "sum method" do
-    it "returns the sum of 2 numbers" do
-        expect( 2+3).to eql(5)
-    end
-end
