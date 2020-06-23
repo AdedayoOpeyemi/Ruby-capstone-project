@@ -1,7 +1,9 @@
 require 'colorize'
 
 module AfterColon
-  private
+    def after_colon_check(line_content, line_index, error_messages)
+        after_colon(line_content, line_index, error_messages)
+      end
 
   def after_colon(line_content, line_index, error_messages)
     if line_content.match(/\S:\S/) && !line_content.match(/\:\:/)
@@ -9,9 +11,4 @@ module AfterColon
     end
   end
 
-  public
-
-  def after_colon_check(line_content, line_index, error_messages)
-    after_colon(line_content, line_index, error_messages)
-  end
 end
