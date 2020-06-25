@@ -4,7 +4,8 @@ module SemiColon
   private
 
   def missing_semicolon(line_content, line_index, error_messages)
-    return unless line_content.match(/\:+/) && !line_content.match?(/;+$/) && !line_content.match?(/[\,(\}+$)\{]/)
+    
+    return unless line_content.match(/\:+/) && !line_content.match?(/;+[\s*\W*]*$/) && !line_content.match?(/[\,(\}+$)\{]/)
 
     error_messages << "Missing semicolon at the end of line #{line_index + 1}".colorize(:cyan)
   end

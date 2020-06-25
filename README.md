@@ -127,7 +127,7 @@ body {
 
 ## Authors
 
-:bulb: **Alvaro Paz**
+:bulb: **Opeyemi Oyelesi**
 
 - Github: [@Opeyemi Oyelesi](https://github.com/AdedayoOpeyemi)
 - Twitter: [@Opeyemi Oyelesi](https://twitter.com/oyelesiopy)
