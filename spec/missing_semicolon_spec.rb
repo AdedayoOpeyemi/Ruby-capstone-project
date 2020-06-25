@@ -17,10 +17,17 @@ describe SemiColon do
       end
     end
 
-    context 'When the parameters passed in are the line, index of line, empty array' do
+    context 'When the line passed in does not have a cosing semicolon at the end' do
       it 'It returns an array' do
         missing_semicolon_check(file_details[149], 149, error_array)
         expect(error_array).to eq(["\e[0;36;49mMissing semicolon at the end of line 150\e[0m"])
+      end
+    end
+
+    context 'When the pline passed in only has a closing curly bracket' do
+      it 'It returns an array' do
+        missing_semicolon_check(file_details[152], 152, error_array)
+        expect(error_array).to eq([])
       end
     end
   end
