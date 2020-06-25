@@ -126,20 +126,20 @@ h3 {
 }
 
 table {
-  /* */border-collapse: collapse;
-  border-spacing: 0;/* */
+  /**/border-collapse: collapse;
+  border-spacing: 0;/**/
 }
 
 .header-container {
-  display: flex;
+  display: /**/flex;
   flex-direction: row;
   border-bottom: 1px   solid #f2f2f2;
-  padding:2.3em 0;
+  padding:2.3em /*  */0;
 }
 
 nav     {
-  background: #7a7878;
-  text-align: center;
+  /*    */background: #7a7878;
+  text-align: center;/*    */
   height: 150px;
   display: inline-flex;
   width: 100%;

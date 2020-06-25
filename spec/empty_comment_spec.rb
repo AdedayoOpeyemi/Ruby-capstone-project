@@ -25,10 +25,31 @@ describe EmptyComment do
     end
 
     context 'When there is open and close comment tag without a space in between them at the end of a line' do
-        it 'It pushes the error message into the error array' do
-          empty_comment_check(file_details[129], 129, error_array)
-          expect(error_array).to eq(["\e[0;31;49mEmpty comment detected on line 130\e[0m"])
-        end
+      it 'It pushes the error message into the error array' do
+        empty_comment_check(file_details[129], 129, error_array)
+        expect(error_array).to eq(["\e[0;31;49mEmpty comment detected on line 130\e[0m"])
       end
+    end
+
+    context 'When there is open and close comment tag without a space in between in the middle of the line' do
+      it 'It pushes the error message into the error array' do
+        empty_comment_check(file_details[133], 133, error_array)
+        expect(error_array).to eq(["\e[0;31;49mEmpty comment detected on line 134\e[0m"])
+      end
+    end
+
+    context 'When there is open and close comment tag with a space or more at the begining of the line' do
+      it 'It pushes the error message into the error array' do
+        empty_comment_check(file_details[140], 140, error_array)
+        expect(error_array).to eq(["\e[0;31;49mEmpty comment detected on line 141\e[0m"])
+      end
+    end
+
+    context 'When there is open and close comment tag with a space or more in between in the middle of the line' do
+      it 'It pushes the error message into the error array' do
+        empty_comment_check(file_details[133], 133, error_array)
+        expect(error_array).to eq(["\e[0;31;49mEmpty comment detected on line 134\e[0m"])
+      end
+    end
   end
 end
