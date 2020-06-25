@@ -4,10 +4,10 @@ module EmptyComment
   private
 
   def empty_comment(line_content, line_index, error_messages)
-    matching_condition = %r{/\/\*\s*?\*\/}
+    matching_condition = (/\/\*\s*\*\//) 
     return unless matching_condition =~ line_content
 
-    error_messages << "Empty comment detected on #{line_index + 1}".colorize(:red)
+    error_messages << "Empty comment detected on line #{line_index + 1}".colorize(:red)
   end
 
   public
