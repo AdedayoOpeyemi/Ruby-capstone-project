@@ -30,11 +30,11 @@
 
 ### Run tests
 
-- Install RSpec 
+- Install RSpec on your local machine 
   - Run the ```rspec``` command
 
 
-### Linter Usage
+### Linter Functions
 
 1. Check spacing right after a semicolon
   - This linter checks whether or not there is a space right after a semi-colon and before the value being assigned.
