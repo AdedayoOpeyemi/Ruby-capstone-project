@@ -24,9 +24,9 @@ describe AfterColon do
       expect(error_array).to eq([])
     end
 
-    it 'It returns an empty array if the line passed conly contains a psuedocode' do
-      AfterColon.after_colon_check(file_details[113], 113, error_array)
-      expect(error_array).to eq([])
+    it 'It returns an empty array if the line passed only contains a psuedocode' do
+      AfterColon.after_colon_check(file_details[110], 110, error_array)
+      expect(error_array).to eq(["\e[0;36;49mNo space after colon on line 111\e[0m"])
     end
   end
 end

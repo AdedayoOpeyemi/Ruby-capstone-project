@@ -108,7 +108,7 @@ ul {
 
 blockquote,
 q {
-  quotes: none;
+  quotes :none;
 }
 
 blockquote::before, 
