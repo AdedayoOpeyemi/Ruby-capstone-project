@@ -5,10 +5,9 @@ module MultipleSpace
 
   def multiple_space(line_content, line_index, error_messages)
     matching_condition = /\S+\s{2,}\S/
-    check = matching_condition =~ line_content
-    if check
-      error_messages << "Multiple spaces found on line #{line_index + 1}".colorize(:yellow)
-    end
+    return unless matching_condition =~ line_content
+
+    error_messages << "Multiple spaces found on line #{line_index + 1}".colorize(:yellow)
   end
 
   public
