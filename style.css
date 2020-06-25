@@ -141,7 +141,7 @@ nav     {
   /*    */background: #7a7878;
   text-align: center;/*    */
   height: 150px;
-  display: inline-flex;
+  display: inline-flex;    
   width: 100%;
   align-items: center;
 }
