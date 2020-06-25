@@ -7,7 +7,7 @@ module ZeroUnit
     matching_condition = /[\:\s]+0{1}+\w/
     return unless matching_condition =~ line_content
 
-    error_messages << "Unit assigned to Zero valued variable on #{line_index + 1}".colorize(:magenta)
+    error_messages << "Unit assigned to Zero valued variable on line #{line_index + 1}".colorize(:magenta)
   end
 
   public
