@@ -10,7 +10,6 @@ describe ZeroUnit do
   let(:file_details) { File.readlines('./style.css') }
 
   describe '#zero_unit_check' do
-  
     context 'When the parameters passed in are the line, index of line, empty array' do
       it 'It returns an array' do
         zero_unit_check(file_details[149], 149, error_array)

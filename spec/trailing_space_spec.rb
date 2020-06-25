@@ -10,7 +10,6 @@ describe Trailing do
   let(:file_details) { File.readlines('./style.css') }
 
   describe '#trailing_space_check' do
-  
     context 'When the parameters passed in are the line, index of line, empty array' do
       it 'It returns an array' do
         trailing_space_check(file_details[149], 149, error_array)
