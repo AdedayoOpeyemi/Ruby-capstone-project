@@ -6,7 +6,6 @@ module AfterColon
   end
 
   def after_colon(line_content, line_index, error_messages)
-    # return unless line_content.match(/[\:\S]\:[\:\S]/) && !line_content.match(/\:\:/)
     return unless line_content.match(/[\:\S\s]\:[\:\S]/) && !line_content.match(/\:\:/)
     error_messages << "No space after colon on line #{line_index + 1}".colorize(:cyan)
   end
