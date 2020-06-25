@@ -1,18 +1,10 @@
 require 'colorize'
 
 module EmptyComment
-  private
-
-  def empty_comment(line_content, line_index, error_messages)
+  def empty_comment_check(line, index, error)
     matching_condition = %r{\/\*\s*\*\/}
-    return unless matching_condition =~ line_content
+    return unless matching_condition =~ line
 
-    error_messages << "Empty comment detected on line #{line_index + 1}".colorize(:red)
-  end
-
-  public
-
-  def empty_comment_check(line_content, line_index, error_messages)
-    empty_comment(line_content, line_index, error_messages)
+    error << "Empty comment detected on line #{index + 1}".colorize(:red)
   end
 end

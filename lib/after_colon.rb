@@ -1,13 +1,9 @@
 require 'colorize'
 
 module AfterColon
-  def after_colon_check(line_content, line_index, error_messages)
-    after_colon(line_content, line_index, error_messages)
-  end
+  def after_colon_check(line, index, error)
+    return unless line.match(/[\:\S\s]\:[\:\S]/) && !line.match(/\:\:/)
 
-  def after_colon(line_content, line_index, error_messages)
-    return unless line_content.match(/[\:\S\s]\:[\:\S]/) && !line_content.match(/\:\:/)
-
-    error_messages << "No space after colon on line #{line_index + 1}".colorize(:cyan)
+    error << "No space after colon on line #{index + 1}".colorize(:cyan)
   end
 end

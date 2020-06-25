@@ -20,12 +20,13 @@ linter_errors = []
 puts content[content.size]
 
 content.each_with_index do |line_content, line_index|
-  trailing_space(line_content, line_index, linter_errors)
+  trailing_space_check(line_content, line_index, linter_errors)
   multiple_space_check(line_content, line_index, linter_errors)
   after_colon_check(line_content, line_index, linter_errors)
   empty_comment_check(line_content, line_index, linter_errors)
-  zero_unit(line_content, line_index, linter_errors)
-  missing_semicolon(line_content, line_index, linter_errors)
+  zero_unit_check(line_content, line_index, linter_errors)
+  missing_semicolon_check(line_content, line_index, linter_errors)
 end
 
 puts linter_errors
+puts linter_errors.length

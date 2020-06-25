@@ -1,6 +1,6 @@
 require_relative '../lib/after_colon.rb'
 # rubocop: disable Style/MixinUsage
-include AfterColon
+# include AfterColon
 # rubocop: enable Style/MixinUsage
 
 describe AfterColon do
