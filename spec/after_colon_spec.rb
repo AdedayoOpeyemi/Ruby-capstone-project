@@ -6,27 +6,25 @@ include AfterColon
 describe AfterColon do
   let(:file) { './style.css' }
   let(:error_array) { [] }
-  let(:file_details) { File.readlines('./style.css') }
+  let(:cont) { File.readlines('./style.css') }
 
   describe '#after_colon_check' do
-    it 'returns an empty array when all the colons on line has the right afterspace' do
-      AfterColon.after_colon_check(file_details[34], 34, error_array)
-      expect(error_array).to eql([])
+    it 'returns nil when all the colons on line has the right afterspace' do
+      expect(AfterColon.after_colon_check(cont[34], 34)).to eql(nil)
     end
 
-    it 'It pushes an error message into the error array when the colons do not have the right afterspace' do
-      AfterColon.after_colon_check(file_details[136], 136, error_array)
-      expect(error_array).to eq(["\e[0;36;49mNo space after colon on line 137\e[0m"])
+    it 'It returns an error message when the colons do not have the right afterspace' do
+      AfterColon.after_colon_check(cont[136], 136)
+      expect(AfterColon.after_colon_check(cont[136], 136)).to eq("\e[0;36;49mNo space after colon on line 137\e[0m")
     end
 
-    it 'It returns an empty array if the line passed conly contains a psuedocode' do
-      AfterColon.after_colon_check(file_details[113], 113, error_array)
-      expect(error_array).to eq([])
+    it 'It returns nil if the line passed conly contains a psuedocode' do
+      expect(AfterColon.after_colon_check(cont[113], 113)).to eq(nil)
     end
 
-    it 'It returns an empty array if the line passed only contains a psuedocode' do
-      AfterColon.after_colon_check(file_details[110], 110, error_array)
-      expect(error_array).to eq(["\e[0;36;49mNo space after colon on line 111\e[0m"])
+    it 'It returns an error if there is no space after the colon' do
+      AfterColon.after_colon_check(cont[110], 110)
+      expect(AfterColon.after_colon_check(cont[110], 110)).to eq("\e[0;36;49mNo space after colon on line 111\e[0m")
     end
   end
 end

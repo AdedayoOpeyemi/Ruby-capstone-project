@@ -1,32 +1,18 @@
 #!/usr/bin/ruby
 
-require_relative '../lib/trailing_space.rb'
-require_relative '../lib/multiple_space.rb'
-require_relative '../lib/zero_unit.rb'
-require_relative '../lib/empty_comment.rb'
-require_relative '../lib/after_colon.rb'
-require_relative '../lib/missing_semicolon.rb'
+require_relative '../lib/linter.rb'
 
-# rubocop: disable Style/MixinUsage
-include Trailing
-include MultipleSpace
-include ZeroUnit
-include EmptyComment
-include AfterColon
-include SemiColon
-# rubocop: enable Style/MixinUsage
 content = File.readlines(ARGV[0])
-linter_errors = []
-puts content[content.size]
+checker = LinterApp.new
+error_array = []
 
 content.each_with_index do |line_content, line_index|
-  trailing_space_check(line_content, line_index, linter_errors)
-  multiple_space_check(line_content, line_index, linter_errors)
-  after_colon_check(line_content, line_index, linter_errors)
-  empty_comment_check(line_content, line_index, linter_errors)
-  zero_unit_check(line_content, line_index, linter_errors)
-  missing_semicolon_check(line_content, line_index, linter_errors)
+  checker.lint_action(checker.after_colon_check(line_content, line_index), error_array)
+  checker.lint_action(checker.empty_comment_check(line_content, line_index), error_array)
+  checker.lint_action(checker.missing_semicolon_check(line_content, line_index), error_array)
+  checker.lint_action(checker.multiple_space_check(line_content, line_index), error_array)
+  checker.lint_action(checker.trailing_space_check(line_content, line_index), error_array)
+  checker.lint_action(checker.zero_unit_check(line_content, line_index), error_array)
 end
-
-puts linter_errors
-puts linter_errors.length
+puts error_array
+puts "#{error_array.length} errors were found, please fix".colorize(:green)
