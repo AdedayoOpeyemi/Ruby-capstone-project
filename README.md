@@ -123,7 +123,7 @@ body {
 
 ## Screenshot
 
-![Example Output](https://user-images.githubusercontent.com/58086801/80663620-1dcec000-8a5a-11ea-8668-735e1b4c4f59.png)
+![Example Output]![screenshot](./app_screenshot.png)
 
 ## Authors
 
